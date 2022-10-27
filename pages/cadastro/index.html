@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../../css/cadastro.css">
+</head>
+<body>
+    <main class="cadastro">
+        <img class="bola-fundo" src="../../assets/cadastro/bola-azul.png" alt="">
+        <h1>Cadastre-se agora</h1>
+        <p>Tenha acesso a milhares de vagas em um só lugar</p>
+        <section class="container-cadastro">
+            <form action="#">
+                <label for="usuario">Tipo de usuário*</label>
+                <div class="pesquisar">
+                    <select name="usuario" id="usuario">
+                        <option value="oculto" selected hidden disabled>Qual sua função?</option>
+                        <option value="Canditado">Canditado</option>
+                        <option value="Recrutador">Recrutador</option>
+                    </select>
+                    <img class="seta" src="../../assets/cadastro/seta-baixo.svg" alt="">
+                </div>
+                
+
+                <label for="nome">Nome completo*</label>
+                <input type="text" name="nome" id="nome" placeholder="Exemplo: João da Silva">
+
+                <label for="nasc">Data de nascimento*</label>
+                <input type="text" name="nasc" id="nasc" placeholder="Digite sua data de nascimento">
+
+                <label for="email">Email*</label>
+                <input type="email" name="email" id="email" placeholder="Digite seu email">
+
+                <label for="senha">Senha*</label>
+                <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
+
+                <input class="btn" type="submit" value="Criar conta">
+            </form>
+
+            <div class="acesso">
+                <p>Já possui uma conta?</p>
+                <a href="../../index.html">Acesse agora</a>
+            </div>
+        </section>
+        <img class="bola-fundo-2" src="../../assets/cadastro/bola-azul.png" alt="">
+    </main>
+</body>
+</html>
