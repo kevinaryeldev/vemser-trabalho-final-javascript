@@ -59,6 +59,11 @@
 
 .home-input input {
     border: none;
+    width: 100%;
+}
+
+.home-input input:focus, select:focus {
+    outline: 0;
 }
 
 .home-btn-log {
