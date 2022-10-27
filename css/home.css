@@ -13,6 +13,10 @@
   border-radius: 34px;
 }
 
+.home-button-logout:hover{
+  background: rgba(111, 108, 144, 0.15);
+}
+
 .home-button-logout-icon {
   display: flex;
 }
@@ -24,20 +28,66 @@ button {
 .home-body {
   font-family: "DM Sans", sans-serif;
 }
+
 .home-img-logout {
   width: 30px;
   height: 30px;
 }
 
 .home-main {
-  height: 100%;
-  padding: 4, 5rem;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 4.5rem;
   display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100vw;
-  height: 100%;
 }
 
-.home-vagas {
+.home-vaga-container-principal{
   box-shadow: 0px 54px 54px rgba(74, 58, 255, 0.02),
     1px 4px 104px rgba(20, 20, 43, 0.04), 0px 98px 66px rgba(19, 18, 66, 0.02);
+  padding: 37px 45px;
+  border-radius: 34px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  gap: 26px;
+}
+
+.home-vaga-container{
+  gap: 26px;
+  display: flex;
+  flex-direction: column;
+}
+
+.home-vaga{
+  cursor: pointer;
+  padding: 23px 35px;
+  width: 756px;
+  box-shadow: 0px 2px 6px rgba(19, 18, 66, 0.07);
+  border: 1px solid #EFF0F7;
+  border-radius: 46px;
+  display: flex;
+  justify-content: space-between;
+  color:  #6F6C90;
+}
+
+.home-vaga:hover{
+  background: rgba(111, 108, 144, 0.15);
+}
+
+.button-cadastrar{
+  margin-top: 35px;
+  background: #4A3AFF;
+  box-shadow: 0px 8px 22px rgba(74, 58, 255, 0.26);
+  border-radius: 86px;
+  width: 80%;
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  border: none;
+  padding: 23px;
 }
