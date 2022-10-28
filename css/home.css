@@ -102,3 +102,58 @@ button {
   border: none;
   padding: 23px;
 }
+
+.home-modal-criar-vaga-backdrop{
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: blur(10px);
+  background: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home-modal-criar-vaga-container{
+  font-family: "DM Sans", sans-serif;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 54px 54px rgba(74, 58, 255, 0.02), 1px 4px 104px rgba(20, 20, 43, 0.04), 0px 98px 66px rgba(19, 18, 66, 0.02);
+  border-radius: 34px;
+  padding: 50px;
+  gap: 18px;
+}
+.home-modal-criar-vaga-input-label{
+  font-weight: 700;
+  font-size: 18px;
+  color: #170F49;
+}
+.home-modal-criar-vaga-input{
+  width: 450px;
+  background: #FFFFFF;
+  border: 1px solid #EFF0F7;
+  padding: 20px;
+  box-shadow: 0px 2px 6px rgba(19, 18, 66, 0.07);
+  border-radius: 46px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  color: #6F6C90;
+}
+.home-modal-criar-vaga-input:focus{
+  outline-color:#c9cacc ;
+}
+
+.home-modal-criar-vaga-button{
+  background: #4A3AFF;
+  color: white;
+  border: none;
+  box-shadow: 0px 8px 22px rgba(74, 58, 255, 0.26);
+  border-radius: 86px;
+  padding: 23px;
+}
+
+.home-modal-criar-vaga-button:hover{
+  background: #382cc4;
+}
