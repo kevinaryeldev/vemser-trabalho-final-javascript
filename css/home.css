@@ -27,6 +27,16 @@ button {
 
 .home-body {
   font-family: "DM Sans", sans-serif;
+  background-image: linear-gradient(
+  45deg,
+  hsl(0deg 0% 96%) 0%,
+  hsl(0deg 0% 96%) 15%,
+  hsl(243deg 20% 78%) 30%,
+  hsl(240deg 21% 60%) 50%,
+  hsl(243deg 22% 79%) 60%,
+  hsl(0deg 0% 100%) 85%,
+  hsl(0deg 0% 100%) 100%
+);
 }
 
 .home-img-logout {
@@ -55,6 +65,7 @@ button {
   justify-content: space-between;
   align-items: center;
   gap: 26px;
+  background-color: #FFFFFF;
 }
 
 .home-vaga-container{
