@@ -86,6 +86,11 @@ body{
     margin-bottom: 17px;
 }
 
+.container-nao-cadastrado .card:hover{
+    cursor: pointer;
+    background-color: #EFF0F6;
+}
+
 
 .container-nao-cadastrado button{
     display: flex;
