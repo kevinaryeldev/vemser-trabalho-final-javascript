@@ -98,6 +98,7 @@ select {
     font-size: 1.125rem;
     margin-bottom: 17px;
     outline: none;
+    color: #6F6C90;
 }
 
 .container-cadastro form .btn{
