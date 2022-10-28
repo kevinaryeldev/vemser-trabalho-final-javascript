@@ -1,6 +1,6 @@
 let isRecruiter = true
 
-function checkRecruiter(){
+function checkRecruiter(isRecruiter){
     if (isRecruiter){
         let container = document.getElementById('home-vaga-container-principal')
         let button =  document.createElement('button')
@@ -9,4 +9,9 @@ function checkRecruiter(){
         container.appendChild(button)
     }
 }
-checkRecruiter()
+
+checkRecruiter(isRecruiter)
+
+function registerVacancy() {
+    
+}
