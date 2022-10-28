@@ -1,6 +1,6 @@
 let isRecruiter = true
-let vagas = [{title:'Dev React', payment:'R$ 5000'},{title:'Dev React', payment:'R$ 5000'},{title:'Dev React', payment:'R$ 5000'}]
-function checkRecruiter(){
+
+function checkRecruiter(isRecruiter){
     if (isRecruiter){
         let container = document.getElementById('home-vaga-container-principal')
         let button =  document.createElement('button')
@@ -10,6 +10,11 @@ function checkRecruiter(){
         container.appendChild(button)
     }
 }
+
+checkRecruiter(isRecruiter)
+
+function registerVacancy() {
+    window.location.href = '../pages/home/index.html'
 
 function mostrarVagas(){
     let container = document.getElementById('home-vaga-container')
