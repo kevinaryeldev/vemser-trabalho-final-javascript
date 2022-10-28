@@ -16,7 +16,7 @@
             <form action="#">
                 <label for="usuario">Tipo de usuário*</label>
                 <div class="pesquisar">
-                    <select name="usuario" id="usuario">
+                    <select name="usuario" id="usuario" aria-placeholder="oiii">
                         <option value="oculto" selected hidden disabled>Qual sua função?</option>
                         <option value="Canditado">Canditado</option>
                         <option value="Recrutador">Recrutador</option>
@@ -37,7 +37,7 @@
                 <label for="senha">Senha*</label>
                 <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
 
-                <input class="btn" type="submit" value="Criar conta">
+                <input class="btn" id="botao" type="submit" value="Criar conta">
             </form>
 
             <div class="acesso">
@@ -47,5 +47,7 @@
         </section>
         <img class="bola-fundo-2" src="../../assets/cadastro/bola-azul.png" alt="">
     </main>
+
+    <script src="../../js/cadastro.js"></script>
 </body>
 </html>
