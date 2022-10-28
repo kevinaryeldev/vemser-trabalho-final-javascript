@@ -5,5 +5,5 @@ let array =[{nome: 'Marcus', nascimento: '10/12/1999'},{nome:'Roberta', nascimen
 let reprovado = 'Reprovado';
 
 array.forEach((el)=>{
-    cards.innerHTML += `<div class="card"> <p>${el.nome}</p> <p>${el.nascimento}</p> <button class="btn-status">${reprovado}</button></div>`
+    cards.innerHTML += `<div class="card"> <span><p>${el.nome}</p> <p>${el.nascimento}</p></span> <span><button class="btn-status">${reprovado}</button></span> </div>`
 })

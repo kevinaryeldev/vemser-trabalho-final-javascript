@@ -47,7 +47,7 @@ body{
 
 .container-vaga-recrutador .header-container{
     display: flex;
-    justify-content: space-between;
+    gap: 164px;
     font-size: 1.125rem;
     margin-bottom: 27px;
 }
@@ -75,8 +75,10 @@ body{
     margin-bottom: 28px;
 }
 
-.container-vaga-recrutador #card{
+.container-vaga-recrutador .card{
     display: flex;
+    align-items: center;
+    justify-content: center;
     justify-content: space-between;
     padding: 23px 36px;
     box-shadow: 0px 2px 6px rgba(19, 18, 66, 0.07);
@@ -85,12 +87,17 @@ body{
     margin-bottom: 17px;
 }
 
+.container-vaga-recrutador .card span:first-child{
+    display: flex;
+    gap: 164px;
+}
+
 .container-vaga-recrutador .card:hover{
     cursor: pointer;
     background-color: #EFF0F6;
 }
 
-.container-vaga-recrutador button{
+.container-vaga-recrutador .btn{
     display: flex;
     justify-content: center;
     margin: 0 auto;
@@ -114,4 +121,11 @@ body{
 .card .btn-status{
     width: 220px;
     padding: 7px 0px;
+    background-color: #FE6663;
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 700;
+    border: none;
+    box-shadow: 0px 8px 22px rgba(74, 58, 255, 0.26);
+    border-radius: 86px;
 }
