@@ -1,17 +1,31 @@
 const botao = document.querySelector('#botao')
 
-botao.addEventListener('click', (e)=>{
+class Usuario{
+    funcao
+    nome
+    nascimento
+    email
+    senha
+
+
+
+    constructor(funcao,nome,nascimento,email,senha){
+        this.funcao = funcao
+        this.nome = nome
+        this.nascimento = nascimento
+        this.email  = email
+        this.senha = senha
+    }
+}
+
+botao.addEventListener('click', async (e)=>{
     e.preventDefault()
 
     const select = document.querySelector('#usuario')
     let funcao = select.options[select.selectedIndex].text
-    
     const nome = document.querySelector('#nome').value
-    
     const nascimento = document.querySelector('#nasc').value
-    
     const email = document.querySelector('#email').value
-    
     const senha = document.querySelector('#senha').value
     
     
