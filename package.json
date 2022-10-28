@@ -1,0 +1,22 @@
+{
+  "name": "vemser-trabalho-final-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinaryeldev/vemser-trabalho-final-javascript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kevinaryeldev/vemser-trabalho-final-javascript/issues"
+  },
+  "homepage": "https://github.com/kevinaryeldev/vemser-trabalho-final-javascript#readme",
+  "dependencies": {
+    "axios": "^1.1.3"
+  }
+}
