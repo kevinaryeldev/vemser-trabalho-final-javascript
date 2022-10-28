@@ -3,13 +3,14 @@ function login() {
     const password = document.getElementById('home-pass').value;
 
     if (validationField(email, password)) {
-        let isRegistered = true
+        let isRegistered = false
         //TODO: chamar a api para validar se a pessoa já tem cadastro
 
         if (isRegistered) {
             window.location.href = '../pages/home/index.html'
         } else {
             alert("Usuário ou senha inválidos!")
+            location.reload()
         }
     }
 }

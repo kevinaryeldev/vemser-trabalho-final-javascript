@@ -13,5 +13,5 @@ function checkRecruiter(isRecruiter){
 checkRecruiter(isRecruiter)
 
 function registerVacancy() {
-    
+    window.location.href = '../pages/home/index.html'
 }
