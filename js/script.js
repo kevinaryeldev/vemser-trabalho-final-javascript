@@ -1,17 +1,32 @@
-const failMsgLogin = 'Insira e-mail e senha para efetuar o login!'
-
 function login() {
-    const loginValue = document.getElementById('home-email').value;
-    const passValue = document.getElementById('home-pass').value;
+    const email = document.getElementById('home-email').value;
+    const password = document.getElementById('home-pass').value;
 
-    if (loginValue == false) {
-        alert(failMsgLogin)
-        location.reload();
-    } else if (passValue == false) {
-        alert(failMsgLogin)
-        location.reload();
+    if (validationField(email, password)) {
+        let isRegistered = false
+        //TODO: chamar a api para validar se a pessoa já tem cadastro
+
+        if (isRegistered) {
+            window.location.href = '../pages/home/index.html'
+        } else {
+            alert("Usuário ou senha inválidos!")
+            location.reload()
+        }
     }
-    
-    console.log(loginValue);
-    console.log(passValue);
+}
+
+function validationField(email, password) {
+    let isValid = true;
+
+    if (email.trim() === "") {
+        isValid = false;
+        document.getElementById("validation-email").innerHTML = `Email não pode estar vazio`
+    }
+
+    if (password.trim() === "") {
+        isValid = false;
+        document.getElementById("validation-pass").innerHTML = `Senha não pode estar vazio`
+    }
+
+    return isValid;
 }

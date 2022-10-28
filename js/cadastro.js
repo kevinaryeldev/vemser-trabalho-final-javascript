@@ -21,8 +21,6 @@ botao.addEventListener('click', (e)=>{
         if(nascimento == '') throw "Campo de Nascimento OBRIGATÓRIO!"
         if(email == '') throw "Campo de Email OBRIGATÓRIO!"
         if(senha == '') throw "Campo de Senha OBRIGATÓRIO!"
-        
-        
     } catch(err){
         alert(err)
         return

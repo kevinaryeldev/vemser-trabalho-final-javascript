@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Home</title>
+    <title>Login</title>
 </head>
 <body>
     <section class="home-container">
@@ -20,12 +20,14 @@
             <div class="home-inputers">
                 <div class="home-input">
                     <input type="email" placeholder="Email" id="home-email">
-                    <i class="fa-regular fa-user"></i>
+                    <i class="fa-regular fa-user"></i>     
                 </div>
+                <p id="validation-email" style="color: red;"></p>
                 <div class="home-input">
                     <input type="password" placeholder="Senha" id="home-pass">
                     <i class="fa-solid fa-lock"></i>
                 </div>
+                <p id="validation-pass" style="color: red;"></p>
             </div>
 
             <button class="home-btn-log" onclick="login()">Log in</button>
@@ -37,5 +39,6 @@
         </div>
     </section>
     <script src="./js/script.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </body>
 </html>
