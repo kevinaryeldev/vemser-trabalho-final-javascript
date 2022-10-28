@@ -5,31 +5,22 @@
 }
 
 body{
-    overflow-y: hidden;
+    background-image: linear-gradient(
+    45deg,
+    hsl(0deg 0% 96%) 0%,
+    hsl(0deg 0% 96%) 15%,
+    hsl(243deg 20% 78%) 30%,
+    hsl(240deg 21% 60%) 50%,
+    hsl(243deg 22% 79%) 60%,
+    hsl(0deg 0% 100%) 85%,
+    hsl(0deg 0% 100%) 100%
+    );
+    height: 100vh;
 }
 
 
 .cadastro{
     text-align: center;
-    position: relative;
-}
-
-.cadastro .bola-fundo{
-    position: absolute;
-    z-index: -1;
-    left: 280px;
-    top: -15px;
-}
-
-.cadastro .bola-fundo-2{
-    position: absolute;
-    z-index: -1;
-    right: 120px;
-    top: 520px;
-}
-
-.frente{
-    position: relative;
 }
 
 .cadastro h1{
