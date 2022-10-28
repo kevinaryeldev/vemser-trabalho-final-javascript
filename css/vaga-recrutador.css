@@ -1,0 +1,131 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #6F6C90;
+
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    background-image: linear-gradient(
+    45deg,
+    hsl(0deg 0% 96%) 0%,
+    hsl(0deg 0% 96%) 15%,
+    hsl(243deg 20% 78%) 30%,
+    hsl(240deg 21% 60%) 50%,
+    hsl(243deg 22% 79%) 60%,
+    hsl(0deg 0% 100%) 85%,
+    hsl(0deg 0% 100%) 100%
+    );
+    height: 100vh;
+}
+
+.header-vaga-recrutador{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 23px;
+}
+
+.header-vaga-recrutador .sair{
+    display: flex;
+    align-items: center;
+}
+
+.container-vaga-recrutador{
+    max-width: 849px;
+    margin: 0 auto;
+    background-color: white;
+    box-shadow: 0px 54px 54px rgba(74, 58, 255, 0.02), 1px 4px 104px rgba(20, 20, 43, 0.04), 0px 98px 66px rgba(19, 18, 66, 0.02);
+    border-radius: 34px;
+    padding: 60px 81px;
+}
+
+.container-vaga-recrutador .header-container{
+    display: flex;
+    gap: 164px;
+    font-size: 1.125rem;
+    margin-bottom: 27px;
+}
+
+.container-vaga-recrutador .titulo span{
+    font-weight: 600;
+}
+
+.container-vaga-recrutador .titulo{
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.container-vaga-recrutador .descricao{
+    font-size: 1.5rem;
+    margin-bottom: 33px;
+}
+
+.container-vaga-recrutador .descricao span{
+    font-weight: 600;
+}
+
+.container-vaga-recrutador h2{
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.container-vaga-recrutador .card{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    padding: 23px 36px;
+    box-shadow: 0px 2px 6px rgba(19, 18, 66, 0.07);
+    border-radius: 46px;
+    font-size: 18px;
+    margin-bottom: 17px;
+}
+
+.container-vaga-recrutador .card span:first-child{
+    display: flex;
+    gap: 164px;
+}
+
+.container-vaga-recrutador .card:hover{
+    cursor: pointer;
+    background-color: #EFF0F6;
+}
+
+.container-vaga-recrutador .btn{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    width: 603px;
+    padding: 23px 0px;
+    margin-top: 122px;
+    font-size: 1.125rem;
+    color: white;
+    border: none;
+    background: #4A3AFF;
+    box-shadow: 0px 8px 22px rgba(74, 58, 255, 0.26);
+    border-radius: 86px;
+    cursor: pointer;
+}
+
+.container-vaga-recrutador button:hover{
+    filter: brightness(1.2);
+    transition: .3s;
+}
+
+.card .btn-status{
+    width: 220px;
+    padding: 7px 0px;
+    background-color: #FE6663;
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 700;
+    border: none;
+    box-shadow: 0px 8px 22px rgba(74, 58, 255, 0.26);
+    border-radius: 86px;
+}
