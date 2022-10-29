@@ -70,23 +70,7 @@
       "title": "dev react",
       "description": "Desenvolver a pagina de login",
       "payment": "R$: 10000",
-      "candidatos": [
-        {
-          "nome": "MARCUS PAULO MORENO MOREIRA FREITAS",
-          "id": 8,
-          "nascimento": "2001-02-12"
-        },
-        {
-          "nome": "MARCUS PAULO MORENO MOREIRA FREITAS",
-          "id": 8,
-          "nascimento": "2001-02-12"
-        },
-        {
-          "nome": "MARCUS PAULO MORENO MOREIRA FREITAS",
-          "id": 8,
-          "nascimento": "2001-02-12"
-        }
-      ],
+      "candidatos": [],
       "ownerID": "7",
       "id": 1
     },
@@ -94,13 +78,7 @@
       "title": "Desenvolvedor frontend",
       "description": "Desenvolver layout ",
       "payment": "R$ 80000",
-      "candidatos": [
-        {
-          "nome": "MARCUS PAULO MORENO MOREIRA FREITAS",
-          "id": 8,
-          "nascimento": "2001-02-12"
-        }
-      ],
+      "candidatos": [],
       "ownerID": "7",
       "id": 2
     }
