@@ -105,4 +105,4 @@ function criarVaga(e,modal){
     data = Object.fromEntries(formData)
     console.log(data)
     destruirModalCriarVaga(modal)
-}}
+}
