@@ -1,4 +1,29 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "marcuspaulo.morenomf@gmail.com",
+      "password": "$2a$10$urUpQsurXONz5wCe9pTG7uO7g3skLsppiqHnfTUp15Eg6mxCj/Ky.",
+      "funcao": "Recrutador",
+      "nome": "MARCUS PAULO MORENO MOREIRA FREITAS",
+      "nascimento": "2001-02-12",
+      "id": 1
+    },
+    {
+      "email": "baincafreitas@gmail.com",
+      "password": "$2a$10$awG5qS3Avs3xBgt1Eo1lx.sj.8cgZGnCIhTLMug9zMlEf3coKN.oC",
+      "funcao": "Recrutador",
+      "nome": "MARCUS PAULO MORENO MOREIRA FREITAS",
+      "nascimento": "2001-02-12",
+      "id": 2
+    },
+    {
+      "email": "kinho@gmail.com",
+      "password": "$2a$10$6ycKW8Pbjm/9/LDrmGHg9uGDLATjAFxVZCTVx/eUdmHgkUb4/ciUG",
+      "funcao": "Canditado",
+      "nome": "MARCUS PAULO MORENO MOREIRA FREITAS",
+      "nascimento": "2001-02-12",
+      "id": 3
+    }
+  ],
   "vagas": []
 }

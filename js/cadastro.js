@@ -1,4 +1,4 @@
-const url = 'http://localhost:3000'
+const url = 'http://localhost:3001'
 const botao = document.querySelector('#botao')
 
 class Usuario{
@@ -43,17 +43,14 @@ botao.addEventListener('click', async (e)=>{
         if(email == '') throw "Campo de Email OBRIGATÓRIO!"
         if(senha == '') throw "Campo de Senha OBRIGATÓRIO!"
         
-        await axios.post(`${url}/users`, usuario) 
+        await axios.post(`${url}/users`, usuario).then((response) => {
+            window.location.replace('../../index.html')
+        }) 
         
     } catch(err){
         alert(err)
         return
     }
+
     
-    
-    console.log(funcao)
-    console.log(nome)
-    console.log(nascimento)
-    console.log(email)
-    console.log(senha)
 })
