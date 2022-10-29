@@ -15,6 +15,7 @@ checkRecruiter(isRecruiter)
 
 function registerVacancy() {
     window.location.href = '../pages/home/index.html'
+}
 
 function mostrarVagas(){
     let container = document.getElementById('home-vaga-container')
