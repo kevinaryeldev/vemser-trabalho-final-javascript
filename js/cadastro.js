@@ -1,5 +1,13 @@
 const url = 'http://localhost:3001'
 const botao = document.querySelector('#botao')
+const statusInfo = document.getElementById('validation-pass');
+
+// Id's Erros
+const lblUsuario = document.getElementById('lbl-usuario');
+const lblNome = document.getElementById('lbl-nome');
+const lblNasc = document.getElementById('lbl-nasc');
+const lblEmail = document.getElementById('lbl-mail');
+const lblPss = document.getElementById('lbl-pss');
 
 class Usuario{
     funcao;
@@ -37,18 +45,42 @@ botao.addEventListener('click', async (e)=>{
 
     
     try{ 
-        if(funcao == 'Qual sua função?') throw "Selecionar uma função!"
-        if(nome == '') throw "Campo de Nome completo OBRIGATÓRIO!"
-        if(nascimento == '') throw "Campo de Nascimento OBRIGATÓRIO!"
-        if(email == '') throw "Campo de Email OBRIGATÓRIO!"
-        if(senha == '') throw "Campo de Senha OBRIGATÓRIO!"
+        if(funcao == 'Qual sua função?') {
+            lblUsuario.style.color = "red";
+            throw 'Selecione uma função!';
+        }
+
+        if(nome == '') {
+            lblNome.style.color = "red";
+            throw "Campo de Nome completo OBRIGATÓRIO!";
+        } 
+        
+
+        if(nascimento == '') {
+            lblNasc.style.color = "red";
+            throw "Campo de Nascimento OBRIGATÓRIO!";
+        }
+        
+
+        if(email == '') {
+            lblEmail.style.color = "red";
+            throw "Campo de Email OBRIGATÓRIO!";
+        }
+        
+
+        if(senha == '') {
+            lblPss.style.color = "red";
+            throw "Campo de Senha OBRIGATÓRIO!";
+        }
+        
         
         await axios.post(`${url}/users`, usuario).then((response) => {
+            
             window.location.replace('../../index.html')
         }) 
         
     } catch(err){
-        alert(err)
+        statusInfo.innerText = err;
         return
     }
 

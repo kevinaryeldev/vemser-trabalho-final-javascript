@@ -13,7 +13,7 @@
         <p>Tenha acesso a milhares de vagas em um só lugar</p>
         <section class="container-cadastro">
             <form action="#">
-                <label for="usuario">Tipo de usuário*</label>
+                <label for="usuario" id="lbl-usuario">Tipo de usuário*</label>
                 <div class="pesquisar">
                     <select name="usuario" id="usuario" aria-placeholder="oiii">
                         <option value="oculto" selected hidden disabled>Qual sua função?</option>
@@ -24,18 +24,19 @@
                 </div>
                 
 
-                <label for="nome">Nome completo*</label>
+                <label for="nome" id="lbl-nome">Nome completo*</label>
                 <input type="text" name="nome" id="nome" placeholder="Exemplo: João da Silva">
 
-                <label for="nasc">Data de nascimento*</label>
+                <label for="nasc" id="lbl-nasc">Data de nascimento*</label>
                 <input type="date" name="nasc" id="nasc" placeholder="Digite sua data de nascimento.">
 
-                <label for="email">Email*</label>
+                <label for="email" id="lbl-mail">Email*</label>
                 <input type="email" name="email" id="email" placeholder="Digite seu email">
 
-                <label for="senha">Senha*</label>
+                <label for="senha"  id="lbl-pss">Senha*</label>
                 <input type="password" name="senha" id="senha" placeholder="Digite sua senha">
 
+                <p id="validation-pass" style="color: red; text-align: center; margin: 20px 0;"></p>
                 <input class="btn" id="botao" type="submit" value="Criar conta">
             </form>
 
