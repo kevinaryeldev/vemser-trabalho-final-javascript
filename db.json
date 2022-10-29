@@ -27,7 +27,11 @@
     {
       "email": "recrutador@gmail.com",
       "password": "$2a$10$vW7zSHHh5BzoIAM/lxH0.OX0UfR52Z8xWnIdG4ycv34aI1dhGehnW",
-      "id": 4
+      "id": 4,
+      "funcao": "Recrutador",
+      "nome": "Recrutador",
+      "nascimento": "1990-09-09"
+      
     },
     {
       "email": "gabriel.albuquerque@dbccompany.com.br",
