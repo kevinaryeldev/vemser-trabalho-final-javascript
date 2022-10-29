@@ -28,6 +28,14 @@
       "email": "recrutador@gmail.com",
       "password": "$2a$10$vW7zSHHh5BzoIAM/lxH0.OX0UfR52Z8xWnIdG4ycv34aI1dhGehnW",
       "id": 4
+    },
+    {
+      "email": "gabriel.albuquerque@dbccompany.com.br",
+      "password": "$2a$10$2niHO1PzkT8L4mnBBZ3LB.klwUOpdXYbfEYClB2u3sNOohW2TeP22",
+      "funcao": "Canditado",
+      "nome": "gasdasd",
+      "nascimento": "2000-09-08",
+      "id": 5
     }
   ],
   "vagas": []
