@@ -72,7 +72,7 @@ function mostrarVagas() {
   let container = document.getElementById("home-vaga-container");
   if (vagas.length > 0) {
     vagas.forEach((el) => {
-      container.innerHTML += `<div class="home-vaga">
+      container.innerHTML += `<div class="home-vaga" onclick="irParaVaga(${el.id})">
           <p class="home-vaga-titulo">${el.title}</p>
           <p class="home-vaga-salario">${el.payment}</p>
         </div>`;
@@ -81,6 +81,14 @@ function mostrarVagas() {
     container.innerHTML = `<div class="home-vaga home-vaga-vazia">
         <p class="home-vaga-titulo">Nenhuma vaga cadastrada</p>
       </div>`;
+  }
+}
+
+function irParaVaga(id){
+  if (isRecruiter){
+    window.location.replace(`../vaga-recrutador/index.html?id=${id}`)
+  } else{
+    window.location.replace(`../pages/nao-cadastrado/index.html?id=${id}`) 
   }
 }
 
