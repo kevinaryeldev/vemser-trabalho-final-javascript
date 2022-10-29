@@ -1,4 +1,4 @@
-const url = 'https://vemser-trabalho-javascript-equipe3.cyclic.app/'
+const url = 'http://localhost:3000'
 const botao = document.querySelector('#botao')
 
 class Usuario{
@@ -34,6 +34,7 @@ botao.addEventListener('click', async (e)=>{
         email,
         senha
     )
+
     
     try{ 
         if(funcao == 'Qual sua função?') throw "Selecionar uma função!"
