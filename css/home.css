@@ -90,6 +90,13 @@ button {
   background: rgba(111, 108, 144, 0.15);
 }
 
+.home-vaga-vazia{
+  justify-content: center;
+}
+.home-vaga-vazia:hover{
+  background-color: inherit;
+}
+
 .button-cadastrar{
   margin-top: 35px;
   background: #4A3AFF;
