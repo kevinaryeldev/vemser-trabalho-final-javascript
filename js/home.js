@@ -1,7 +1,15 @@
-let url = "http://localhost:3001/vagas";
-let isRecruiter;
+let url = "http://localhost:3001";
+let isRecruiter = false;
 let vagas = [];
-window.addEventListener("load", () => requisicaoVagas());
+let userInfo;
+
+
+window.addEventListener("load", () => requisicoes());
+
+function requisicoes(){
+  requisicaoVagas()
+  requisicaoUser()
+}
 
 function prepareHeaders(){
   let token = localStorage.getItem('@vemserjs-token')
@@ -12,9 +20,31 @@ function prepareHeaders(){
   }
 }
 
+async function requisicaoUser(){
+    axios.get(`${url}/users/${localStorage.getItem('@vemserjs-userId')}`,prepareHeaders())
+    .then(response=>{
+      userInfo = response.data
+      delete userInfo.password
+      console.log(userInfo)
+      if(userInfo.funcao == 'Recrutador'){
+        isRecruiter = true
+      } else {
+        isRecruiter = false
+      }
+      checkRecruiter()
+    })
+    .catch(err=>{
+      if (err.response.data.message){
+        console.error(err.response.data.message)
+      }else{
+        console.error(error)
+      }
+    })
+}
+
 async function requisicaoVagas() {
   axios
-    .get(url)
+    .get(`${url}/vagas`)
     .then((response) => response.data)
     .then((data) => (vagas = data))
     .finally(mostrarVagas())
@@ -27,7 +57,7 @@ async function requisicaoVagas() {
     });
 }
 
-function checkRecruiter(isRecruiter) {
+function checkRecruiter() {
   if (isRecruiter) {
     let container = document.getElementById("home-vaga-container-principal");
     let button = document.createElement("button");
@@ -52,7 +82,6 @@ function mostrarVagas() {
         <p class="home-vaga-titulo">Nenhuma vaga cadastrada</p>
       </div>`;
   }
-  checkRecruiter()
 }
 
 function criarModalCriarVaga() {
@@ -143,12 +172,8 @@ async function criarVaga(e, modal) {
   data = Object.fromEntries(formData);
   data.candidatos = [];
   data.ownerID = localStorage.getItem('@vemserjs-userId')
-  try {
-    axios
-      .post(url, data, prepareHeaders() )
-      .then((response) => console.log(response.data))
-      .catch((err) => console.log(err));
-  } finally {
-    destruirModalCriarVaga(modal);
-  }
+  axios
+    .post(`${url}/vagas`, data, prepareHeaders() )
+    .then((response) => console.log(response.data))
+    .catch((err) => console.log(err));
 }
