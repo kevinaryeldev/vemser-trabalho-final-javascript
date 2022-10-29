@@ -48,32 +48,38 @@ botao.addEventListener('click', async (e)=>{
         if(funcao == 'Qual sua função?') {
             lblUsuario.style.color = "red";
             throw 'Selecione uma função!';
+        } else {
+            lblUsuario.style.color = "#170F49";
         }
 
         if(nome == '') {
             lblNome.style.color = "red";
             throw "Campo de Nome completo OBRIGATÓRIO!";
-        } 
+        } else {
+            lblNome.style.color = "#170F49";
+        }
         
-
         if(nascimento == '') {
             lblNasc.style.color = "red";
             throw "Campo de Nascimento OBRIGATÓRIO!";
+        } else {
+            lblNasc.style.color = "#170F49";
         }
         
-
         if(email == '') {
             lblEmail.style.color = "red";
             throw "Campo de Email OBRIGATÓRIO!";
+        } else {
+            lblEmail.style.color = "#170F49";
         }
         
-
         if(senha == '') {
             lblPss.style.color = "red";
             throw "Campo de Senha OBRIGATÓRIO!";
+        } else {
+            lblPss.style.color = "#170F49";
         }
-        
-        
+               
         await axios.post(`${url}/users`, usuario).then((response) => {
             
             window.location.replace('../../index.html')
