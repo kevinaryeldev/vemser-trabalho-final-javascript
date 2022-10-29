@@ -23,6 +23,14 @@
       "nome": "MARCUS PAULO MORENO MOREIRA FREITAS",
       "nascimento": "2001-02-12",
       "id": 3
+    },
+    {
+      "email": "gabriel_ac_@live.com",
+      "password": "$2a$10$xsUr3CJFcIcLnE0B5WlcJ.dH0UdDQqSPIo6IgVE7AF19TY8HBmXA6",
+      "funcao": "Canditado",
+      "nome": "asdasdasd",
+      "nascimento": "2000-02-02",
+      "id": 4
     }
   ],
   "vagas": []
