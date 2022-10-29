@@ -1,7 +1,16 @@
 let url = "http://localhost:3001/vagas";
-let isRecruiter = true;
+let isRecruiter;
 let vagas = [];
 window.addEventListener("load", () => requisicaoVagas());
+
+function prepareHeaders(){
+  let token = localStorage.getItem('@vemserjs-token')
+  return {
+    headers: {
+      Authorization: "Bearer " + token,
+    },
+  }
+}
 
 async function requisicaoVagas() {
   axios
@@ -9,7 +18,13 @@ async function requisicaoVagas() {
     .then((response) => response.data)
     .then((data) => (vagas = data))
     .finally(mostrarVagas())
-    .catch((err) => console.log(error));
+    .catch((err) => {
+      if (err.response.data.message){
+        console.error(err.response.data.message)
+      }else{
+        console.error(error)
+      }
+    });
 }
 
 function checkRecruiter(isRecruiter) {
@@ -23,29 +38,22 @@ function checkRecruiter(isRecruiter) {
   }
 }
 
-checkRecruiter(isRecruiter);
-
-function registerVacancy() {
-  window.location.href = "../pages/home/index.html";
-}
-
 function mostrarVagas() {
   let container = document.getElementById("home-vaga-container");
   if (vagas.length > 0) {
     vagas.forEach((el) => {
       container.innerHTML += `<div class="home-vaga">
-            <p class="home-vaga-titulo">${el.title}</p>
-            <p class="home-vaga-salario">${el.payment}</p>
-            </div>`;
+          <p class="home-vaga-titulo">${el.title}</p>
+          <p class="home-vaga-salario">${el.payment}</p>
+        </div>`;
     });
   } else {
     container.innerHTML = `<div class="home-vaga home-vaga-vazia">
-                <p class="home-vaga-titulo">Nenhuma vaga cadastrada</p>
-            </div>`;
+        <p class="home-vaga-titulo">Nenhuma vaga cadastrada</p>
+      </div>`;
   }
+  checkRecruiter()
 }
-
-checkRecruiter();
 
 function criarModalCriarVaga() {
   let backdrop = document.createElement("div");
@@ -130,21 +138,14 @@ function destruirModalCriarVagaComClickAway(e, modal, container) {
   }
 }
 
-let token =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InJlY3J1dGFkb3JAZ21haWwuY29tIiwiaWF0IjoxNjY3MDA5NzMzLCJleHAiOjE2NjcwMTMzMzMsInN1YiI6IjQifQ.QJ0XpKTfnNcDin_naYvz3NcPl7WCm6m_tVAvLJzl8Os";
-
 async function criarVaga(e, modal) {
   formData = new FormData(e.target).entries();
   data = Object.fromEntries(formData);
   data.candidatos = [];
-  //    data.ownerID = localStorage.getItem('@trabalho-final-js-userID')
+  data.ownerID = localStorage.getItem('@vemserjs-userId')
   try {
     axios
-      .post(url, data, {
-        headers: {
-          Authorization: "Bearer " + token,
-        },
-      })
+      .post(url, data, prepareHeaders() )
       .then((response) => console.log(response.data))
       .catch((err) => console.log(err));
   } finally {
