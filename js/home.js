@@ -25,7 +25,6 @@ async function requisicaoUser(){
     .then(response=>{
       userInfo = response.data
       delete userInfo.password
-      console.log(userInfo)
       if(userInfo.funcao == 'Recrutador'){
         isRecruiter = true
       } else {
@@ -45,9 +44,10 @@ async function requisicaoUser(){
 async function requisicaoVagas() {
   axios
     .get(`${url}/vagas`)
-    .then((response) => response.data)
-    .then((data) => (vagas = data))
-    .finally(mostrarVagas())
+    .then((response) => {
+      vagas = response.data
+      mostrarVagas()
+    })
     .catch((err) => {
       if (err.response.data.message){
         console.error(err.response.data.message)
@@ -174,6 +174,5 @@ async function criarVaga(e, modal) {
   data.ownerID = localStorage.getItem('@vemserjs-userId')
   axios
     .post(`${url}/vagas`, data, prepareHeaders() )
-    .then((response) => console.log(response.data))
     .catch((err) => console.log(err));
 }
