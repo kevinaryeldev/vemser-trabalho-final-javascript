@@ -1,17 +1,16 @@
-function login() {
-    const email = document.getElementById('home-email').value;
-    const password = document.getElementById('home-pass').value;
+const url = 'http://localhost:3001'
 
-    if (validationField(email, password)) {
-        let isRegistered = false
-        //TODO: chamar a api para validar se a pessoa já tem cadastro
+async function login() {
+    const emailA = document.getElementById('home-email').value;
+    const passwordA = document.getElementById('home-pass').value;
+    const data = {email: emailA, password: passwordA}
 
-        if (isRegistered) {
-            window.location.href = '../pages/home/index.html'
-        } else {
-            alert("Usuário ou senha inválidos!")
-            location.reload()
-        }
+    if (validationField(emailA, passwordA)) {
+        let isRegistered = await axios.post(`${url}/login`, data).then(resp => {
+            localStorage.setItem("@vemserjs-token", resp.data.accessToken);
+            localStorage.setItem("@vemserjs-userId", resp.data.user.id);
+            window.location.href = '../pages/home/index.html';
+            }).catch(error => alert("Usuário ou senha inválidos!" + error.response.data));
     }
 }
 
