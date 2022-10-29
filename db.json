@@ -31,7 +31,6 @@
       "funcao": "Recrutador",
       "nome": "Recrutador",
       "nascimento": "1990-09-09"
-      
     },
     {
       "email": "gabriel.albuquerque@dbccompany.com.br",
@@ -48,7 +47,62 @@
       "nome": "Jaciane Santana dos Santos",
       "nascimento": "1993-10-19",
       "id": 6
+    },
+    {
+      "email": "kinho11@gmail.com",
+      "password": "$2a$10$2AcSUJU68xM89VtgHdm8ie35VFhCBrGW6TSoyIO9dwAEXiQeI0OLm",
+      "funcao": "Recrutador",
+      "nome": "MARCUS PAULO MORENO MOREIRA FREITAS",
+      "nascimento": "2001-02-12",
+      "id": 7
+    },
+    {
+      "email": "login11@gmail.com",
+      "password": "$2a$10$X12uiAKeoWP1K.VI3iVEqO11f1ZYNYWkzI/7vN/6809xx61X51kwK",
+      "funcao": "Canditado",
+      "nome": "MARCUS PAULO MORENO MOREIRA FREITAS",
+      "nascimento": "2001-02-12",
+      "id": 8
     }
   ],
-  "vagas": []
+  "vagas": [
+    {
+      "title": "dev react",
+      "description": "Desenvolver a pagina de login",
+      "payment": "R$: 10000",
+      "candidatos": [
+        {
+          "nome": "MARCUS PAULO MORENO MOREIRA FREITAS",
+          "id": 8,
+          "nascimento": "2001-02-12"
+        },
+        {
+          "nome": "MARCUS PAULO MORENO MOREIRA FREITAS",
+          "id": 8,
+          "nascimento": "2001-02-12"
+        },
+        {
+          "nome": "MARCUS PAULO MORENO MOREIRA FREITAS",
+          "id": 8,
+          "nascimento": "2001-02-12"
+        }
+      ],
+      "ownerID": "7",
+      "id": 1
+    },
+    {
+      "title": "Desenvolvedor frontend",
+      "description": "Desenvolver layout ",
+      "payment": "R$ 80000",
+      "candidatos": [
+        {
+          "nome": "MARCUS PAULO MORENO MOREIRA FREITAS",
+          "id": 8,
+          "nascimento": "2001-02-12"
+        }
+      ],
+      "ownerID": "7",
+      "id": 2
+    }
+  ]
 }

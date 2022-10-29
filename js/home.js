@@ -88,7 +88,7 @@ function irParaVaga(id){
   if (isRecruiter){
     window.location.replace(`../vaga-recrutador/index.html?id=${id}`)
   } else{
-    window.location.replace(`../pages/nao-cadastrado/index.html?id=${id}`) 
+    window.location.replace(`../nao-cadastrado/index.html?id=${id}`) 
   }
 }
 

@@ -9,18 +9,20 @@
 </head>
 <body>
     <div class="header-vaga-recrutador">
-        <i><img src="../../assets/vaga-recrutador/voltar.svg" alt=""></i>
+        <a href="../home/index.html">
+            <i><img src="../../assets/vaga-recrutador/voltar.svg" alt=""></i>
+        </a>
         <a href="../../index.html">
             <span class="sair">sair <i><img src="../../assets/vaga-recrutador/sair.svg" alt=""></i></span>
         </a>
     </div>
 
     <section class="container-vaga-recrutador">
-        <div class="header-container" style="justify-content: space-between;"><p>ID da vaga: ###</p> <p>Remuneração: ###</p></div>
+        <div class="header-container" style="justify-content: space-between;"><p id="vaga-id">ID da vaga: ###</p> <p id="remuneracao">Remuneração: ###</p></div>
 
-        <p class="titulo"><span>Título:</span> Dev React Jr</p>
+        <p class="titulo" id="titulo-vaga"><span>Título:</span> Dev React Jr</p>
 
-        <p class="descricao"><span>Descrição da vaga: </span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore aliquid suscipit eum in. Reprehenderit saepe tempore eum ab! Alias dolore officiis deleniti repudiandae harum! Cum praesentium iusto minima veritatis officia?</p>
+        <p class="descricao" id="descricao-vaga"><span>Descrição da vaga: </span>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore aliquid suscipit eum in. Reprehenderit saepe tempore eum ab! Alias dolore officiis deleniti repudiandae harum! Cum praesentium iusto minima veritatis officia?</p>
 
         <h2>Candidatos inscritos na vaga</h2>
 
@@ -35,7 +37,8 @@
 
         <button class="btn">Excluir vaga</button>
     </section>
-
+    
+    <script src="../../node_modules/axios/dist/axios.min.js"></script>
     <script src="../../js/vaga-recrutador.js"></script>
 </body>
 </html>
