@@ -27,7 +27,27 @@
     {
       "email": "recrutador@gmail.com",
       "password": "$2a$10$vW7zSHHh5BzoIAM/lxH0.OX0UfR52Z8xWnIdG4ycv34aI1dhGehnW",
-      "id": 4
+      "id": 4,
+      "funcao": "Recrutador",
+      "nome": "Recrutador",
+      "nascimento": "1990-09-09"
+      
+    },
+    {
+      "email": "gabriel.albuquerque@dbccompany.com.br",
+      "password": "$2a$10$2niHO1PzkT8L4mnBBZ3LB.klwUOpdXYbfEYClB2u3sNOohW2TeP22",
+      "funcao": "Canditado",
+      "nome": "gasdasd",
+      "nascimento": "2000-09-08",
+      "id": 5
+    },
+    {
+      "email": "jacianesantanadossantos@gmail.com",
+      "password": "$2a$10$yK6AmMCMPT3c9daeTbLVP.gP6M.6PGOXekYBQBajt7itCP2G549z6",
+      "funcao": "Canditado",
+      "nome": "Jaciane Santana dos Santos",
+      "nascimento": "1993-10-19",
+      "id": 6
     }
   ],
   "vagas": []
