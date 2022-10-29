@@ -36,6 +36,14 @@
       "nome": "gasdasd",
       "nascimento": "2000-09-08",
       "id": 5
+    },
+    {
+      "email": "jacianesantanadossantos@gmail.com",
+      "password": "$2a$10$yK6AmMCMPT3c9daeTbLVP.gP6M.6PGOXekYBQBajt7itCP2G549z6",
+      "funcao": "Canditado",
+      "nome": "Jaciane Santana dos Santos",
+      "nascimento": "1993-10-19",
+      "id": 6
     }
   ],
   "vagas": []
