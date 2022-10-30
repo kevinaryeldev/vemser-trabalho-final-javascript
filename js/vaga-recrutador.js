@@ -12,10 +12,12 @@ let array = [];
 
 function mostrarCandidatos() {
     array.forEach((el)=>{
+        let primeiroNome = el.nome.split(' ');
         if (el.reprovado) {
-            cards.innerHTML += `<div class="card"> <span><p>${el.nome}</p> <p>${el.nascimento}</p></span> <span><button class="btn-status btn-status-disabled" disabled>Reprovar</button></span> </div>`
+            cards.innerHTML += 
+                `<div class="card"> <span><p>${primeiroNome[0]}</p><p>${el.nascimento}</p></span> <span><button class="btn-status btn-status-disabled" disabled>Reprovar</button></span> </div>`
         } else {
-            cards.innerHTML += `<div class="card"> <span><p>${el.nome}</p> <p>${el.nascimento}</p></span> <span><button class="btn-status" onclick="reprovarCandidato(this, ${el.id})">Reprovar</button></span> </div>`
+            cards.innerHTML += `<div class="card"> <span><p>${primeiroNome[0]}</p> <p>${el.nascimento}</p></span> <span><button class="btn-status" onclick="reprovarCandidato(this, ${el.id})">Reprovar</button></span> </div>`
         }
     })
 }
@@ -29,15 +31,28 @@ axios.get(`${url}/vagas/${parametro.get('id')}`)
         array = response.data.candidatos;
         mostrarVaga();  
         mostrarCandidatos();
-    })
+})
+
+axios.get(`${url}/users/${localStorage.getItem('@vemserjs-userId')}`,prepareHeaders())
+    .then(response=>{
+      userInfo = response.data
+      console.log(userInfo)
+      delete userInfo.password
+})
+
+function prepareHeaders(){
+    let token = localStorage.getItem('@vemserjs-token')
+    return {
+        headers: {
+        Authorization: "Bearer " + token,
+        },
+    }
+}    
 
 function mostrarVaga() {
     idVaga.innerText = `ID da vaga: ${parametro.get('id')}`
-
     remuneracao.innerText = `Remuneraçao: ${vaga.payment}`
-
     tituloVaga.innerHTML = `<span>Titulo</span>: ${vaga.title}`
-
     descricaoVaga.innerHTML = `<span>Descrição da vaga: </span>${vaga   .description}`
 }
 
@@ -51,26 +66,10 @@ function reprovarCandidato(e, id) {
         });
 }
 
-axios.get(`${url}/users/${localStorage.getItem('@vemserjs-userId')}`,prepareHeaders())
-    .then(response=>{
-      userInfo = response.data
-      console.log(userInfo)
-      delete userInfo.password
-    })
-
-function prepareHeaders(){
-    let token = localStorage.getItem('@vemserjs-token')
-    return {
-        headers: {
-        Authorization: "Bearer " + token,
-        },
-    }
-}    
-
 function excluirVaga() {
     axios.delete(`${url}/vagas/${parametro.get('id')}`, prepareHeaders())
         .then((response) => {
-            window.location.replace('../home/index.html')
-            console.log(response.data)
-        })
+            window.location.replace('../home/index.html');
+            console.log(response.data);
+        });
 }

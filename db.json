@@ -79,6 +79,22 @@
       "nome": "Candidato",
       "nascimento": "2022-10-29",
       "id": 10
+    },
+    {
+      "email": "jacianesantana@gmail.com",
+      "password": "$2a$10$WVrMzBf4GJjvbJPULf3Gn.KKkDRtdxZKCDtY2tTdRCRXzlKSC1422",
+      "funcao": "Recrutador",
+      "nome": "Jaciane Santana Recrutadora",
+      "nascimento": "1993-10-19",
+      "id": 11
+    },
+    {
+      "email": "jacianesantana@hotmail.com",
+      "password": "$2a$10$JuOFl9hbV/D9kPFujR7D7e9trvfQ/Tbn3vP8JAjq5Kigio/w7AsgS",
+      "funcao": "Canditado",
+      "nome": "Jaciane Santana Candidata",
+      "nascimento": "1993-10-19",
+      "id": 12
     }
   ],
   "vagas": [

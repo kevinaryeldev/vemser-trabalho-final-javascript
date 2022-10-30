@@ -10,10 +10,10 @@ const descricaoVaga = document.querySelector('#descricao-vaga')
 const naoCandidatado = document.querySelector('#nao-cadidatado')
 const button = document.querySelector('#button')
 
-let array =[]
+let array = [];
 
-function mostraCandidato(){
-    array.forEach((el)=>{
+function mostraCandidato() {
+    array.forEach((el) => {
         if (el.id == userInfo.id && el.reprovado) {
             cards.innerHTML += `<div class="card" style="color: #FE6663"><p>${el.nome}</p> <p>${el.nascimento.split('-').reverse().join('/')}</p></div>`
         } else {
@@ -24,17 +24,17 @@ function mostraCandidato(){
 
 const parametro = new URLSearchParams(window.location.search)
 
-function pegarVaga(){
+function pegarVaga() {
     axios
-    .get(`${url}/vagas/${parametro.get('id')}`)
-    .then((response) => {
-      vaga = response.data;
-      console.log(vaga);
-      array = response.data.candidatos
-      candidatar()  
-      mostraCandidato()
-      cadidatado()
-    })   
+        .get(`${url}/vagas/${parametro.get('id')}`)
+        .then((response) => {
+            vaga = response.data;
+            console.log(vaga);
+            array = response.data.candidatos
+            candidatar()
+            mostraCandidato()
+            cadidatado()
+        })
 }
 
 
@@ -48,38 +48,38 @@ function candidatar() {
     descricaoVaga.innerHTML = `<span>Descrição da vaga: </span>${vaga.description}`
 }
 
-function pegarUsuario(){
-    axios.get(`${url}/users/${localStorage.getItem('@vemserjs-userId')}`,prepareHeaders())
-        .then(response=>{
-          userInfo = response.data
-          console.log(userInfo)
-          delete userInfo.password
-          pegarVaga()
+function pegarUsuario() {
+    axios.get(`${url}/users/${localStorage.getItem('@vemserjs-userId')}`, prepareHeaders())
+        .then(response => {
+            userInfo = response.data
+            console.log(userInfo)
+            delete userInfo.password
+            pegarVaga()
         })
 }
 pegarUsuario()
 
-function prepareHeaders(){
+function prepareHeaders() {
     let token = localStorage.getItem('@vemserjs-token')
     return {
         headers: {
-        Authorization: "Bearer " + token,
+            Authorization: "Bearer " + token,
         },
     }
-}    
+}
 
 function candidatarVaga() {
-    axios.patch(`${url}/vagas/${parametro.get('id')}`, {candidatos: [...array,{nome:userInfo.nome, id: userInfo.id, nascimento: userInfo.nascimento, reprovado: false}]}, prepareHeaders()).then(response =>{
+    axios.patch(`${url}/vagas/${parametro.get('id')}`, { candidatos: [...array, { nome: userInfo.nome, id: userInfo.id, nascimento: userInfo.nascimento, reprovado: false }] }, prepareHeaders()).then(response => {
         console.log(response.data)
         cadidatado()
     })
 
 }
 
-function cadidatado(){
+function cadidatado() {
     let item = array.find(item => item.id == localStorage.getItem('@vemserjs-userId'))
-    if(item){
-        if(item.reprovado){
+    if (item) {
+        if (item.reprovado) {
             button.removeAttribute('onclick')
             button.classList.add('botao-cinza')
             button.classList.remove('botao-azul')
@@ -89,18 +89,18 @@ function cadidatado(){
             button.classList.add('botao-vermelho')
             button.classList.remove('botao-azul')
             button.innerText = 'Cancelar candidatura'
-            button.addEventListener('click', ()=> cancelarCandidatura())
-                
+            button.addEventListener('click', () => cancelarCandidatura())
+
         }
-    } 
+    }
 }
 
 function cancelarCandidatura() {
     console.log('oi')
     let item = array.findIndex(item => item.id == localStorage.getItem('@vemserjs-userId'))
-    if(item > -1){
+    if (item > -1) {
         array.splice(item)
-        axios.patch(`${url}/vagas/${parametro.get('id')}`, {candidatos: [...array]}, prepareHeaders()).then(response =>{
+        axios.patch(`${url}/vagas/${parametro.get('id')}`, { candidatos: [...array] }, prepareHeaders()).then(response => {
             console.log(response.data)
             pegarVaga()
         })
