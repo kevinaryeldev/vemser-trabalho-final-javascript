@@ -7,19 +7,19 @@ const idVaga = document.querySelector('#vaga-id')
 const remuneracao = document.querySelector('#remuneracao')
 const tituloVaga = document.querySelector('#titulo-vaga')
 const descricaoVaga = document.querySelector('#descricao-vaga')
-
 const naoCandidatado = document.querySelector('#nao-cadidatado')
 const button = document.querySelector('#button')
 
-
 let array =[]
-
 
 function mostraCandidato(){
     array.forEach((el)=>{
-        cards.innerHTML += `<div class="card"><p>${el.nome}</p> <p>${el.nascimento.split('-').reverse().join('/')}</p></div>`
+        if (el.id == userInfo.id && el.reprovado) {
+            cards.innerHTML += `<div class="card" style="color: #FE6663"><p>${el.nome}</p> <p>${el.nascimento.split('-').reverse().join('/')}</p></div>`
+        } else {
+            cards.innerHTML += `<div class="card"><p>${el.nome}</p> <p>${el.nascimento.split('-').reverse().join('/')}</p></div>`
+        }
     })
-
 }
 
 const parametro = new URLSearchParams(window.location.search)

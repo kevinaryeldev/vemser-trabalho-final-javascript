@@ -63,6 +63,22 @@
       "nome": "MARCUS PAULO MORENO MOREIRA FREITAS",
       "nascimento": "2001-02-12",
       "id": 8
+    },
+    {
+      "email": "ericksantana@gmail.com",
+      "password": "$2a$10$SZvv2o/U7.joYtyWbbhDs./6ZYalXlHYD3IwjiBR3IPZQ9sjcLITq",
+      "funcao": "Recrutador",
+      "nome": "Erick Santana",
+      "nascimento": "1996-05-27",
+      "id": 9
+    },
+    {
+      "email": "candidato@gmail.com",
+      "password": "$2a$10$CKUhA.AvbnarOzAddJa6c.bNJBeZVz4jJ184C0VL2RQuqvnyvfCFK",
+      "funcao": "Canditado",
+      "nome": "Candidato",
+      "nascimento": "2022-10-29",
+      "id": 10
     }
   ],
   "vagas": [
@@ -70,17 +86,22 @@
       "title": "dev react",
       "description": "Desenvolver a pagina de login",
       "payment": "R$: 10000",
-      "candidatos": [],
+      "candidatos": [
+        {
+          "nome": "Jaciane Santana dos Santos",
+          "id": 6,
+          "nascimento": "1993-10-19",
+          "reprovado": true
+        },
+        {
+          "nome": "Candidato",
+          "id": 10,
+          "nascimento": "2022-10-29",
+          "reprovado": true
+        }
+      ],
       "ownerID": "7",
       "id": 1
-    },
-    {
-      "title": "Desenvolvedor frontend",
-      "description": "Desenvolver layout ",
-      "payment": "R$ 80000",
-      "candidatos": [],
-      "ownerID": "7",
-      "id": 2
     }
   ]
 }
