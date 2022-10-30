@@ -15,7 +15,7 @@ npm run start
 
 ### Cadastro
 
-POST - /register ou  /users ou /signin – criar usuarios 
+POST - /register ou  /users ou /signup – criar usuarios 
 
 body: 
 ```
@@ -42,8 +42,16 @@ response:
 }
 ```
 
+
+### Resgatar info do usuario
+
+Required Auth: Bearer Token
+
+GET - /users/id
+
+
 ### Login
-POST - /login – login usuarios
+POST - /login /signin – login usuarios
 
 body:
 ```
@@ -67,7 +75,6 @@ response:
     }
 }
 ```
-
 ### Vagas
 GET  - /vagas - listar vagas
 
@@ -82,7 +89,7 @@ body:
 {
     "candidatos": [],
     "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-	“ownerID”: 1,
+    “ownerID”: 1,
     "payment": "R$ 5000",
     "title":"Lorem ipsum"
 }
@@ -93,7 +100,7 @@ response:
 {
     "candidatos": [],
     "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-	“ownerID”: 1,
+    “ownerID”: 1,
     "payment": "R$ 5000",
     "title":"Lorem ipsum",
     id:1
