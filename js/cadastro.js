@@ -1,5 +1,5 @@
-const url = 'http://localhost:3001'
-const botao = document.querySelector('#botao')
+const url = 'http://localhost:3001';
+const botao = document.querySelector('#botao');
 const statusInfo = document.getElementById('validation-pass');
 
 // Id's Erros
@@ -9,31 +9,31 @@ const lblNasc = document.getElementById('lbl-nasc');
 const lblEmail = document.getElementById('lbl-mail');
 const lblPss = document.getElementById('lbl-pss');
 
-class Usuario{
+class Usuario {
     funcao;
     nome;
     nascimento;
     email;
     password;
 
-    constructor(funcao,nome,nascimento,email,password){
-        this.funcao = funcao
-        this.nome = nome
-        this.nascimento = nascimento
-        this.email  = email
+    constructor(funcao, nome, nascimento, email, password) {
+        this.funcao = funcao;
+        this.nome = nome;
+        this.nascimento = nascimento;
+        this.email = email;
         this.password = password
     }
 }
 
-botao.addEventListener('click', async (e)=>{
-    e.preventDefault()
+botao.addEventListener('click', async (e) => {
+    e.preventDefault();
 
-    const select = document.querySelector('#usuario')
-    let funcao = select.options[select.selectedIndex].text
-    const nome = document.querySelector('#nome').value
-    const nascimento = document.querySelector('#nasc').value
-    const email = document.querySelector('#email').value
-    const senha = document.querySelector('#senha').value
+    const select = document.querySelector('#usuario');
+    let funcao = select.options[select.selectedIndex].text;
+    const nome = document.querySelector('#nome').value;
+    const nascimento = document.querySelector('#nasc').value;
+    const email = document.querySelector('#email').value;
+    const senha = document.querySelector('#senha').value;
 
     const usuario = new Usuario(
         funcao,
@@ -41,54 +41,51 @@ botao.addEventListener('click', async (e)=>{
         nascimento,
         email,
         senha
-    )
+    );
 
-    
-    try{ 
-        if(funcao == 'Qual sua função?') {
+    try {
+        if (funcao == 'Qual sua função?') {
             lblUsuario.style.color = "red";
             throw 'Selecione uma função!';
         } else {
             lblUsuario.style.color = "#170F49";
         }
 
-        if(nome == '') {
+        if (nome == '') {
             lblNome.style.color = "red";
             throw "Campo de Nome completo OBRIGATÓRIO!";
         } else {
             lblNome.style.color = "#170F49";
         }
-        
-        if(nascimento == '') {
+
+        if (nascimento == '') {
             lblNasc.style.color = "red";
             throw "Campo de Nascimento OBRIGATÓRIO!";
         } else {
             lblNasc.style.color = "#170F49";
         }
-        
-        if(email == '') {
+
+        if (email == '') {
             lblEmail.style.color = "red";
             throw "Campo de Email OBRIGATÓRIO!";
         } else {
             lblEmail.style.color = "#170F49";
         }
-        
-        if(senha == '') {
+
+        if (senha == '') {
             lblPss.style.color = "red";
             throw "Campo de Senha OBRIGATÓRIO!";
         } else {
             lblPss.style.color = "#170F49";
         }
-               
-        await axios.post(`${url}/users`, usuario).then((response) => {
-            
-            window.location.replace('../../index.html')
-        }) 
-        
-    } catch(err){
-        statusInfo.innerText = err;
-        return
-    }
 
-  
-})
+        await axios.post(`${url}/users`, usuario)
+            .then((response) => {
+                window.location.replace('../../index.html');
+            })
+
+    } catch (err) {
+        statusInfo.innerText = err;
+        return;
+    }
+});

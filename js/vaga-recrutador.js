@@ -8,25 +8,28 @@ const remuneracao = document.querySelector('#remuneracao')
 const tituloVaga = document.querySelector('#titulo-vaga')
 const descricaoVaga = document.querySelector('#descricao-vaga')
 
+let array = [];
 
-let array =[{nome: 'Marcus', nascimento: '10/12/1999'},{nome:'Roberta', nascimento: '20/02/2001'}]
-
-let reprovado = 'Reprovado';
-
-array.forEach((el)=>{
-    cards.innerHTML += `<div class="card"> <span><p>${el.nome}</p> <p>${el.nascimento}</p></span> <span><button class="btn-status">${reprovado}</button></span> </div>`
-})
+function mostrarCandidatos() {
+    array.forEach((el)=>{
+        if (el.reprovado) {
+            cards.innerHTML += `<div class="card"> <span><p>${el.nome}</p> <p>${el.nascimento}</p></span> <span><button class="btn-status btn-status-disabled" disabled>Reprovar</button></span> </div>`
+        } else {
+            cards.innerHTML += `<div class="card"> <span><p>${el.nome}</p> <p>${el.nascimento}</p></span> <span><button class="btn-status" onclick="reprovarCandidato(this, ${el.id})">Reprovar</button></span> </div>`
+        }
+    })
+}
 
 const parametro = new URLSearchParams(window.location.search)
 
-
-axios
-.get(`${url}/vagas/${parametro.get('id')}`)
-.then((response) => {
-  vaga = response.data;
-  console.log(vaga);
-  mostrarVaga()  
-})
+axios.get(`${url}/vagas/${parametro.get('id')}`)
+    .then((response) => {
+        vaga = response.data;
+        console.log(vaga);
+        array = response.data.candidatos;
+        mostrarVaga();  
+        mostrarCandidatos();
+    })
 
 function mostrarVaga() {
     idVaga.innerText = `ID da vaga: ${parametro.get('id')}`
@@ -38,6 +41,15 @@ function mostrarVaga() {
     descricaoVaga.innerHTML = `<span>Descrição da vaga: </span>${vaga   .description}`
 }
 
+function reprovarCandidato(e, id) {
+    let item = array.findIndex(item => item.id == id);
+    array[item].reprovado = true;
+    e.disabled = true;
+    axios.patch(`${url}/vagas/${parametro.get("id")}`, {candidatos: array}, prepareHeaders())
+        .then(response => {
+            console.log(response.data);
+        });
+}
 
 axios.get(`${url}/users/${localStorage.getItem('@vemserjs-userId')}`,prepareHeaders())
     .then(response=>{
@@ -54,3 +66,11 @@ function prepareHeaders(){
         },
     }
 }    
+
+function excluirVaga() {
+    axios.delete(`${url}/vagas/${parametro.get('id')}`, prepareHeaders())
+        .then((response) => {
+            window.location.replace('../home/index.html')
+            console.log(response.data)
+        })
+}

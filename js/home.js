@@ -1,18 +1,17 @@
-let url = "http://localhost:3001";
+let url = 'http://localhost:3001';
 let isRecruiter = false;
 let vagas = [];
 let userInfo;
 
+window.addEventListener('load', () => requisicoes());
 
-window.addEventListener("load", () => requisicoes());
-
-function requisicoes(){
-  requisicaoVagas()
-  requisicaoUser()
+function requisicoes() {
+  requisicaoVagas();
+  requisicaoUser();
 }
 
-function prepareHeaders(){
-  let token = localStorage.getItem('@vemserjs-token')
+function prepareHeaders() {
+  let token = localStorage.getItem('@vemserjs-token');
   return {
     headers: {
       Authorization: "Bearer " + token,
@@ -20,39 +19,38 @@ function prepareHeaders(){
   }
 }
 
-async function requisicaoUser(){
-    axios.get(`${url}/users/${localStorage.getItem('@vemserjs-userId')}`,prepareHeaders())
-    .then(response=>{
-      userInfo = response.data
-      delete userInfo.password
-      if(userInfo.funcao == 'Recrutador'){
-        isRecruiter = true
+async function requisicaoUser() {
+  axios.get(`${url}/users/${localStorage.getItem('@vemserjs-userId')}`, prepareHeaders())
+    .then(response => {
+      userInfo = response.data;
+      delete userInfo.password;
+      if (userInfo.funcao == 'Recrutador') {
+        isRecruiter = true;
       } else {
-        isRecruiter = false
+        isRecruiter = false;
       }
-      checkRecruiter()
+      checkRecruiter();
     })
-    .catch(err=>{
-      if (err.response.data.message){
-        console.error(err.response.data.message)
-      }else{
-        console.error(error)
+    .catch(err => {
+      if (err.response.data.message) {
+        console.error(err.response.data.message);
+      } else {
+        console.error(error); ////////// err?
       }
     })
 }
 
 async function requisicaoVagas() {
-  axios
-    .get(`${url}/vagas`)
+  axios.get(`${url}/vagas`)
     .then((response) => {
-      vagas = response.data
-      mostrarVagas()
+      vagas = response.data;
+      mostrarVagas();
     })
     .catch((err) => {
-      if (err.response.data.message){
-        console.error(err.response.data.message)
-      }else{
-        console.error(error)
+      if (err.response.data.message) {
+        console.error(err.response.data.message);
+      } else {
+        console.error(error); ////////// err?
       }
     });
 }
@@ -72,23 +70,24 @@ function mostrarVagas() {
   let container = document.getElementById("home-vaga-container");
   if (vagas.length > 0) {
     vagas.forEach((el) => {
-      container.innerHTML += `<div class="home-vaga" onclick="irParaVaga(${el.id})">
-          <p class="home-vaga-titulo">${el.title}</p>
-          <p class="home-vaga-salario">${el.payment}</p>
-        </div>`;
+      container.innerHTML +=
+        `<div class="home-vaga" onclick="irParaVaga(${el.id})">
+                    <p class="home-vaga-titulo">${el.title}</p>
+                    <p class="home-vaga-salario">${el.payment}</p>
+                </div>`;
     });
   } else {
     container.innerHTML = `<div class="home-vaga home-vaga-vazia">
-        <p class="home-vaga-titulo">Nenhuma vaga cadastrada</p>
-      </div>`;
+            <p class="home-vaga-titulo">Nenhuma vaga cadastrada</p>
+          </div>`;
   }
 }
 
-function irParaVaga(id){
-  if (isRecruiter){
+function irParaVaga(id) {
+  if (isRecruiter) {
     window.location.replace(`../vaga-recrutador/index.html?id=${id}`)
-  } else{
-    window.location.replace(`../nao-cadastrado/index.html?id=${id}`) 
+  } else {
+    window.location.replace(`../nao-cadastrado/index.html?id=${id}`)
   }
 }
 
@@ -181,6 +180,6 @@ async function criarVaga(e, modal) {
   data.candidatos = [];
   data.ownerID = localStorage.getItem('@vemserjs-userId')
   axios
-    .post(`${url}/vagas`, data, prepareHeaders() )
+    .post(`${url}/vagas`, data, prepareHeaders())
     .catch((err) => console.log(err));
 }
