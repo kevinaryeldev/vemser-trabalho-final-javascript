@@ -114,6 +114,12 @@
           "id": 10,
           "nascimento": "2022-10-29",
           "reprovado": true
+        },
+        {
+          "nome": "MARCUS PAULO MORENO MOREIRA FREITAS",
+          "id": 8,
+          "nascimento": "2001-02-12",
+          "reprovado": true
         }
       ],
       "ownerID": "7",
