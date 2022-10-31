@@ -36,7 +36,6 @@ function pegarVaga() {
         .get(`${url}/vagas/${parametros.get('id')}`)
         .then((response) => {
             vaga = response.data;
-            console.log(vaga);
             array = response.data.candidatos
             candidatar()
             mostraCandidato()
@@ -63,7 +62,6 @@ function pegarUsuario() {
     axios.get(`${url}/users/${localStorage.getItem('@vemserjs-userId')}`, prepareHeaders())
         .then(response => {
             userInfo = response.data
-            console.log(userInfo)
             delete userInfo.password
             pegarVaga()
         }).catch(err=>{
@@ -111,7 +109,6 @@ function cadidatado() {
 }
 
 function cancelarCandidatura() {
-    console.log('oi')
     let item = array.findIndex(item => item.id == localStorage.getItem('@vemserjs-userId'))
     if (item > -1) {
         array.splice(item)
