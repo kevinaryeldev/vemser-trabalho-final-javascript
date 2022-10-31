@@ -3,12 +3,13 @@ let isRecruiter = false;
 let vagas = [];
 let userInfo;
 
-window.addEventListener('load', () => requisicoes());
-
-function requisicoes() {
-  requisicaoVagas();
+window.addEventListener('load', () => {
+  if(!localStorage.getItem('@vemserjs-token')){
+    window.location.replace('../../index.html')
+  } else{
   requisicaoUser();
-}
+  }  
+});
 
 function prepareHeaders() {
   let token = localStorage.getItem('@vemserjs-token');
@@ -30,12 +31,15 @@ async function requisicaoUser() {
         isRecruiter = false;
       }
       checkRecruiter();
+      requisicaoVagas();
     })
     .catch(err => {
-      if (err.response.data.message) {
+      if (err.response) {
         console.error(err.response.data.message);
-      } else {
-        console.error(error); ////////// err?
+        setTimeout(()=>{
+          localStorage.clear()
+          window.location.replace('../../index.html')
+        },3000)
       }
     })
 }
@@ -47,10 +51,8 @@ async function requisicaoVagas() {
       mostrarVagas();
     })
     .catch((err) => {
-      if (err.response.data.message) {
+      if (err.response) {
         console.error(err.response.data.message);
-      } else {
-        console.error(error); ////////// err?
       }
     });
 }
@@ -181,5 +183,6 @@ async function criarVaga(e, modal) {
   data.ownerID = localStorage.getItem('@vemserjs-userId')
   axios
     .post(`${url}/vagas`, data, prepareHeaders())
+    .then(destruirModalCriarVaga(modal))
     .catch((err) => console.log(err));
 }

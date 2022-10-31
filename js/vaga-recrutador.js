@@ -2,13 +2,21 @@ let cards = document.querySelector('#cards')
 const url = 'http://localhost:3001'
 let vaga;
 let userInfo;
-
+let parametros;
 const idVaga = document.querySelector('#vaga-id')
 const remuneracao = document.querySelector('#remuneracao')
 const tituloVaga = document.querySelector('#titulo-vaga')
 const descricaoVaga = document.querySelector('#descricao-vaga')
 
 let array = [];
+window.addEventListener('load', () => {
+    parametros = new URLSearchParams(window.location.search)
+    if(!parametros.get('id') || !window.localStorage.getItem('@vemserjs-token')){
+        window.location.replace('../../index.html')
+    }else{
+        pegarUsuario();
+    }
+});
 
 function mostrarCandidatos() {
     array.forEach((el)=>{
@@ -22,23 +30,37 @@ function mostrarCandidatos() {
     })
 }
 
-const parametro = new URLSearchParams(window.location.search)
-
-axios.get(`${url}/vagas/${parametro.get('id')}`)
+function pegarVaga(){  
+    axios.get(`${url}/vagas/${parametros.get('id')}`)
     .then((response) => {
         vaga = response.data;
         console.log(vaga);
         array = response.data.candidatos;
         mostrarVaga();  
         mostrarCandidatos();
-})
+    }).catch(err=>{
+        if(err.response){
+            window.location.replace('../home/index.html')
+        }       
+    })
+}
 
-axios.get(`${url}/users/${localStorage.getItem('@vemserjs-userId')}`,prepareHeaders())
+function pegarUsuario(){   
+    axios.get(`${url}/users/${localStorage.getItem('@vemserjs-userId')}`,prepareHeaders())
     .then(response=>{
-      userInfo = response.data
-      console.log(userInfo)
-      delete userInfo.password
-})
+    userInfo = response.data
+    console.log(userInfo)
+    delete userInfo.password
+    }).catch(err=>{
+        if (err.response){
+            alert(err.response.data.message)
+            localStorage.clear()
+            setTimeout(()=>{
+                window.location.replace('../../index.html')
+            },3000)
+        }
+    })
+}
 
 function prepareHeaders(){
     let token = localStorage.getItem('@vemserjs-token')
@@ -50,24 +72,24 @@ function prepareHeaders(){
 }    
 
 function mostrarVaga() {
-    idVaga.innerText = `ID da vaga: ${parametro.get('id')}`
+    idVaga.innerText = `ID da vaga: ${parametros.get('id')}`
     remuneracao.innerText = `Remuneraçao: ${vaga.payment}`
     tituloVaga.innerHTML = `<span>Titulo</span>: ${vaga.title}`
-    descricaoVaga.innerHTML = `<span>Descrição da vaga: </span>${vaga   .description}`
+    descricaoVaga.innerHTML = `<span>Descrição da vaga: </span>${vaga.description}`
 }
 
 function reprovarCandidato(e, id) {
     let item = array.findIndex(item => item.id == id);
     array[item].reprovado = true;
     e.disabled = true;
-    axios.patch(`${url}/vagas/${parametro.get("id")}`, {candidatos: array}, prepareHeaders())
+    axios.patch(`${url}/vagas/${parametros.get("id")}`, {candidatos: array}, prepareHeaders())
         .then(response => {
             console.log(response.data);
         });
 }
 
 function excluirVaga() {
-    axios.delete(`${url}/vagas/${parametro.get('id')}`, prepareHeaders())
+    axios.delete(`${url}/vagas/${parametros.get('id')}`, prepareHeaders())
         .then((response) => {
             window.location.replace('../home/index.html');
             console.log(response.data);

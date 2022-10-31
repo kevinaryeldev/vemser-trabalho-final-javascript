@@ -10,7 +10,13 @@ async function login() {
             localStorage.setItem("@vemserjs-token", resp.data.accessToken);
             localStorage.setItem("@vemserjs-userId", resp.data.user.id);
             window.location.href = '../pages/home/index.html';
-            }).catch(error => alert("Usuário ou senha inválidos!" + error.response.data));
+            }).catch(error =>{ 
+                if (error.response){
+                    alert("Usuário ou senha inválidos!\n" + error.response.data)
+                } else {
+                    alert("Erro no servidor")
+                }
+            });
     }
 }
 
