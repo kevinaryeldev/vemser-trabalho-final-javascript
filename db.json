@@ -1,4 +1,72 @@
 {
-  "users": [],
-  "vagas": []
+  "users": [
+    {
+      "email": "recrutador@gmail.com",
+      "password": "$2a$10$WCUocgxQ0iYCxDAc7qJVg./x/LcfLuRoWHvO/A4KpIF62UdeIG1u6",
+      "funcao": "Recrutador",
+      "nome": "Marcinho Recrutador",
+      "nascimento": "1997-06-17",
+      "id": 1
+    },
+    {
+      "email": "candidato1@gmail.com",
+      "password": "$2a$10$lhArJ3mFYafx4OLhFz9XL.H/WNm/u8Zvw5DvepVJgvNTYJ4TP33H.",
+      "funcao": "Canditado",
+      "nome": "José Candidato",
+      "nascimento": "2022-10-20",
+      "id": 2
+    },
+    {
+      "email": "candidato2@gmail.com",
+      "password": "$2a$10$52oJkyFdC71xbZ5ZSSY0gei34.Y7iyRX8PBkKrhIO4MoUWBxqim6.",
+      "funcao": "Canditado",
+      "nome": "Maria Candidata",
+      "nascimento": "1993-07-13",
+      "id": 3
+    }
+  ],
+  "vagas": [
+    {
+      "title": "QA JR",
+      "description": "Automatizar Testes Legais",
+      "payment": "R$ 5000",
+      "candidatos": [
+        {
+          "nome": "José Candidato",
+          "id": 2,
+          "nascimento": "2022-10-20",
+          "reprovado": true
+        },
+        {
+          "nome": "Maria Candidata",
+          "id": 3,
+          "nascimento": "1993-07-13",
+          "reprovado": false
+        }
+      ],
+      "ownerID": "1",
+      "id": 1
+    },
+    {
+      "title": "Dev React Jr",
+      "description": "Desenvolver em React",
+      "payment": "R$ 5000",
+      "candidatos": [
+        {
+          "nome": "José Candidato",
+          "id": 2,
+          "nascimento": "2022-10-20",
+          "reprovado": true
+        },
+        {
+          "nome": "Maria Candidata",
+          "id": 3,
+          "nascimento": "1993-07-13",
+          "reprovado": true
+        }
+      ],
+      "ownerID": "1",
+      "id": 2
+    }
+  ]
 }
