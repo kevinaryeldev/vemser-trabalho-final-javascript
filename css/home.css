@@ -45,7 +45,7 @@ button {
 }
 
 .home-main {
-  height: 100vh;
+  min-height: 100vh;
   box-sizing: border-box;
   padding: 4.5rem;
   display: flex;
