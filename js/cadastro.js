@@ -79,6 +79,13 @@ botao.addEventListener('click', async (e) => {
             lblPss.style.color = "#170F49";
         }
 
+        if(senha.length < 5){    
+            lblPss.style.color = "red";
+            throw "Senha muito curta!";
+        } else {
+            lblPss.style.color = "#170F49";
+        }
+
         await axios.post(`${url}/users`, usuario)
             .then((response) => {
                 window.location.replace('../../index.html');
