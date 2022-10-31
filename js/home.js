@@ -106,9 +106,9 @@ function criarModalCriarVaga() {
   backdrop.appendChild(modalContainer);
   backdrop.onclick = (event) =>
     destruirModalCriarVagaComClickAway(event, backdrop, modalContainer);
-  modalContainer.onsubmit = (event, backdrop) => {
+  modalContainer.onsubmit = (event) => {
     event.preventDefault();
-    criarVaga(event, backdrop);
+    criarVaga(event);
   };
   //
   let labelTitle = document.createElement("label");
@@ -147,7 +147,8 @@ function criarModalCriarVaga() {
   //
   let inputPayment = document.createElement("input");
   inputPayment.classList.add("home-modal-criar-vaga-input");
-  inputPayment.setAttribute("type", "text");
+  inputPayment.setAttribute("type", "number");
+  inputPayment.setAttribute("min", 0); 
   inputPayment.setAttribute("required", "");
   inputPayment.setAttribute("name", "payment");
   inputPayment.setAttribute("placeholder", "Exemplo: R$ 5000");
@@ -166,23 +167,29 @@ function criarModalCriarVaga() {
   document.body.appendChild(backdrop);
 }
 
-function destruirModalCriarVaga(modal) {
-  document.body.removeChild(modal);
-}
-
 function destruirModalCriarVagaComClickAway(e, modal, container) {
   if (e.target != container && e.target.parentNode != container) {
     document.body.removeChild(modal);
   }
 }
 
-async function criarVaga(e, modal) {
+async function criarVaga(e) {
   formData = new FormData(e.target).entries();
   data = Object.fromEntries(formData);
   data.candidatos = [];
   data.ownerID = localStorage.getItem('@vemserjs-userId')
-  axios
+  data.payment = new Intl.NumberFormat('pt-br',{
+    style: 'currency',
+    currency:'BRL',
+    maximumFractionDigits:2
+  }).format(data.payment)
+  if( /\d/.test(data.title) || /\d/.test(data.description)){
+    alert('Titulo ou descrição Não podem conter números!!')
+  } else{
+    axios
     .post(`${url}/vagas`, data, prepareHeaders())
     .then(destruirModalCriarVaga(modal))
     .catch((err) => console.log(err));
+
+  }
 }
