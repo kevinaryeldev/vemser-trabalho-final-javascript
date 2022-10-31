@@ -34,7 +34,6 @@ function pegarVaga(){
     axios.get(`${url}/vagas/${parametros.get('id')}`)
     .then((response) => {
         vaga = response.data;
-        console.log(vaga);
         array = response.data.candidatos;
         mostrarVaga();  
         mostrarCandidatos();
@@ -49,8 +48,8 @@ function pegarUsuario(){
     axios.get(`${url}/users/${localStorage.getItem('@vemserjs-userId')}`,prepareHeaders())
     .then(response=>{
     userInfo = response.data
-    console.log(userInfo)
     delete userInfo.password
+    pegarVaga();
     }).catch(err=>{
         if (err.response){
             alert(err.response.data.message)
