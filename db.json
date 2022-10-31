@@ -95,6 +95,14 @@
       "nome": "Jaciane Santana Candidata",
       "nascimento": "1993-10-19",
       "id": 12
+    },
+    {
+      "email": "kinhoooo@gmail.com",
+      "password": "$2a$10$QyaYb3UE7k4eqS1mGDryLewMYLmUH6Rhwz/iEGBKNe0g2tTzaa9d2",
+      "funcao": "Recrutador",
+      "nome": "asdsadsad",
+      "nascimento": "2001-02-12",
+      "id": 13
     }
   ],
   "vagas": [
